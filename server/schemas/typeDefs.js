@@ -45,6 +45,10 @@ const typeDefs = gql`
         user(username: String!): User
         collections(username: String): [Collection]
         collection(_id: ID!): Collection
+        items(collectionName: String): [Item]
+        item(_id: ID!): Item
+        comments(itemName: String): [Comment]
+        comment(_id: ID!): Comment
     }
     
     type Mutation {
@@ -53,6 +57,9 @@ const typeDefs = gql`
         addCollection(collectionName: String!): User
         addItem(collectionId: ID!, itemName: String!): Collection
         addComment(itemId: ID!): Item
+        removeCollection(collectionId: ID!): Collection
+        removeItem(collectionId: ID!, itemId: ID!): Collection
+        removeComment(itemId: ID!, commentId: ID!): Item
     }
 `;
 

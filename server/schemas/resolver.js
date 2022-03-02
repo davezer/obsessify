@@ -91,6 +91,23 @@ const resolvers = {
                 return updatedItem;
             }
             throw new AuthenticationError('You need to be logged in!');
+        },
+        removeCollection: async (parent, { collectionId }) => {
+            return Collection.findOneAndDelete({ _id: collectionId });
+        },
+        removeItem: async (parent, { collectionId, itemId }) => {
+            return Collection.findOneAndUpdate(
+                { _id: collectionId },
+                { $pull: { items: { _id: itemId} } },
+                { new: true }
+            )
+        },
+        removeComment: async (parent, { itemId, commentId }) => {
+            return Item.findOneAndUpdate(
+                { _id: itemId },
+                { $pull: { comments: { _id: commentId } } },
+                { new: true }
+            )
         }
     }
 };
