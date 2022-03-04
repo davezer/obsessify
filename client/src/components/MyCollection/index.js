@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
+import { Container, Card, Button } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_ME } from '../../utils/queries';
@@ -36,25 +36,25 @@ const MyCollection = () => {
 
     return (
         <>
-            <Jumbotron fluid className='text-light bg-dark'>
+            <Container fluid className='text-light bg-dark'>
                 <Container>
                 <h1>Your Collection</h1>
                 </Container>
-            </Jumbotron>
+            </Container>
                 <Container>
                     <h2>
                     {userData.savedItems.length
                         ? `Viewing ${userData.savedItems.length} saved ${userData.savedItems.length === 1 ? 'item' : 'items'}:`
                         : 'You have no items!'}
                     </h2>
-                    <CardColumns>
+                    <Card>
                     {userData.savedItems.map((item) => {
                         return (
                         <Card key={item.itemId} border='dark'>
                             {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null}
                             <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
-                            {/* <p className='small'>Item: {book.name}</p> */}
+                            <p className='small'>Item: {item.name}</p>
                             <Card.Text>{item.description}</Card.Text>
                             <Button className='btn-block btn-danger' onClick={() => handleDeleteItem(item.itemId)}>
                                 Delete this item!
@@ -63,7 +63,7 @@ const MyCollection = () => {
                         </Card>
                         );
                     })}
-                    </CardColumns>
+                    </Card>
                 </Container>
         </>
     )

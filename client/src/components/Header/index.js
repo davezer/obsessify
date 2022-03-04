@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MyCollection from '../MyCollection';
 
 
 function Header() {
@@ -6,13 +7,16 @@ function Header() {
     
     const renderPage = () => {
         switch(currentPage) {
-            
+            // case 'MyCollection':
+            //     return <MyCollection></MyCollection>
+            // default:
+            //     return <MyCollection></MyCollection>
         }
     };
 
     return (
         <div>
-            {/* <Navigation currentPage={currentPage} handlePageChange={handlePageChange} /> */}
+            {/* <Navigator currentPage={currentPage} handlePageChange={handlePageChange} /> */}
             <div>
                 {
                     renderPage()
