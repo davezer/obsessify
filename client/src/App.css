@@ -1,11 +1,115 @@
-.App {
+:root {
+  --font-family: 'Montserrat', sans-serif;
+  --platinum: #D8E2DC;
+  --gunmetal: #232C33;
+  --blue: #3185FC;
+  --dark-red: #8D0801;
+
+  --timing: 300ms;
+  --scale: 1
+}
+
+body {
+  background-color: var(--gunmetal);
+  color: var(--platinum);
+  font-family: var(--font-family);
+  margin: 0;
+  line-height: 1.1;
+  box-sizing: border-box;
+  min-width: fit-content;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--gunmetal);
+  padding: 2rem 2rem 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer h4 {
+  color: var(--platinum);
+  font-size: 18px;
+  font-weight: lighter;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.5s ease-out;
+}
+
+footer h4:hover {
+  color: var(--blue);
+}
+
+
+/* SOCIAL MEDIA ICONS */
+
+.social-container {
+  width: 100%;
+  margin: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 1em;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
+
+.list-item {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 1.2em;
+  
+}
+
+.social-icons i {
+  color: var(--dark-red);
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  transition: all var(--timing) ease-out;
+  
+}
+
+.social-icons a {
+  display: inline-block;
+  color: var(--platinum);
+  text-decoration: none;
+}
+
+.social-icons a:before {
+  transform: scale(var(--scale));
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: block;
+  background: linear-gradient(45deg, var(--platinum), var(--blue));
+  transition: all var(--timing) ease-out;
+}
+
+.social-icons a:hover:before {
+  transform: scale(0);
+  transition: all var(--timing) ease-in;
+}
+
+.social-icons a:hover i {
+  transform: scale(2.2);
+  color: var(--platinum);
+  background: -webkit-linear-gradient(45deg, var(--blue), var(--dark-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all var(--timing) ease-in;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,20 +117,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
