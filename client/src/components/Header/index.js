@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import Navigation from '../Nav/index';
 import MyCollection from '../MyCollection';
-import Navigation from '../Nav';
 
 
 function Header() {
-    const [currentPage, handlePageChange] = useState('Header');
+    const [currentPage, handlePageChange] = useState('MyCollection');
     
     const renderPage = () => {
         switch(currentPage) {
-            case 'MyCollection':
+            case "MyCollection":
                 return <MyCollection></MyCollection>
+            
             default:
-                return <MyCollection></MyCollection>
+                return currentPage;
         }
     };
 
