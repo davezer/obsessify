@@ -12,7 +12,7 @@ const typeDefs = gql`
         _id: ID
         email: String
         collectionCount: Int
-        collections: [Collections]
+        collections: [Collection]
     }
 
     type Collection {
