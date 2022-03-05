@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navigation from '../Nav/index';
 
 
 function Header() {
@@ -12,7 +13,7 @@ function Header() {
 
     return (
         <div>
-            {/* <Navigation currentPage={currentPage} handlePageChange={handlePageChange} /> */}
+            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
             <div>
                 {
                     renderPage()

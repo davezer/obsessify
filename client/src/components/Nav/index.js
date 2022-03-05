@@ -1,6 +1,7 @@
 import React from "react";
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
-function Nav() {
+function Navigation() {
   return (
     <header className="flex-row px-1">
       <h2>
@@ -17,4 +18,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Navigation;
