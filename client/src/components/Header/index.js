@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navigation from '../Nav/index';
+import MyCollection from '../MyCollection';
 
 
 function Header() {
@@ -7,7 +8,8 @@ function Header() {
     
     const renderPage = () => {
         switch(currentPage) {
-            
+            case "MyCollection":
+                return <MyCollection></MyCollection>
         }
     };
 
