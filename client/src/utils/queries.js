@@ -4,10 +4,18 @@ export const GET_ME = gql`
   {
     me {
       _id
-      username
       email
       collection {
-       
+        _id
+        collectionName
+        category
+        email
+        items {
+          _id
+          itemName
+          email
+          commentCount
+        }
       }
     }
   }

@@ -70,22 +70,22 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addItem: async (parent, { collectionId, itemBody }, context) => {
+        addItem: async (parent, { collectionId, itemName, description }, context) => {
             if (context.user) {
                 const updatedCollection = await Collection.findOneAndUpdate(
                     { _id: collectionId },
-                    { $push: { items: { itemBody, username: context.user.username} } },
+                    { $push: { items: { itemName, description} } },
                     { new: true, runValidators: true }
                 );
                 return updatedCollection;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addComment: async (parent, { itemId, commentBody }, context) => {
+        addComment: async (parent, { itemId, commentText }, context) => {
             if (context.user) {
                 const updatedItem = await Item.findOneAndUpdate(
                     { _id: itemId },
-                    { $push: { comments: { commentBody, email: context.user.email } } },
+                    { $push: { comments: { commentText, email: context.user.email } } },
                     { new: true }
                 );
                 return updatedItem;
@@ -112,5 +112,4 @@ const resolvers = {
     }
 };
 
-// Need to add ability to remove/delete collections, items, and comments
 module.exports = resolvers;

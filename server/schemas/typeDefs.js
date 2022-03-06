@@ -42,8 +42,8 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        user(username: String!): User
-        collections(username: String): [Collection]
+        user(email: String!): User
+        collections(email: String): [Collection]
         collection(_id: ID!): Collection
         items(collectionName: String): [Item]
         item(_id: ID!): Item
@@ -54,9 +54,9 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(email: String!, password: String!): Auth
-        addCollection(collectionName: String!): User
-        addItem(collectionId: ID!, itemName: String!): Collection
-        addComment(itemId: ID!): Item
+        addCollection(collectionName: String!, category: String!, email: String!): Collection
+        addItem(collectionId: ID!, itemName: String!, description: String!): Collection
+        addComment(itemId: ID!, commentText: String!): Item
         removeCollection(collectionId: ID!): Collection
         removeItem(collectionId: ID!, itemId: ID!): Collection
         removeComment(itemId: ID!, commentId: ID!): Item

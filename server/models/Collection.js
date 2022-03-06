@@ -10,14 +10,10 @@ const collectionSchema = new Schema(
       maxlength: 280
     },
     category: {
-        type: String,
-        required: 'Please add a category',
-        minlength: 1,
-        maxlength: 280
-    },
-    username: {
       type: String,
-      required: true
+      required: 'Please add a category',
+      minlength: 1,
+      maxlength: 280
     },
     items: [itemSchema]
   },
