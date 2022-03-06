@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import Navigation from '../Nav/index';
-import MyCollection from '../MyCollection';
+import MyCollection from '../MyCollection/index';
+import Landing from '../Landing/index';
 
 
 function Header() {
-    const [currentPage, handlePageChange] = useState('MyCollection');
+    const [currentPage, handlePageChange] = useState('Landing');
     
     const renderPage = () => {
         switch(currentPage) {
+            case "Landing":
+                return <Landing></Landing>
             case "MyCollection":
                 return <MyCollection></MyCollection>
             
             default:
-                return currentPage;
+                return "Landing";
         }
     };
 
