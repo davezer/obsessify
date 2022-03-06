@@ -58,7 +58,7 @@ const resolvers = {
         },
         addCollection: async (parent, args, context) => {
             if (context.user) {
-                const collection = await Collection.create({ ...args, username: context.user.username });
+                const collection = await Collection.create({ ...args, email: context.user.email });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -72,20 +72,26 @@ const resolvers = {
         },
         addItem: async (parent, { collectionId, itemName, description }, context) => {
             if (context.user) {
-                const updatedCollection = await Collection.findOneAndUpdate(
+                const item = await Item.create({ collectionId, itemName, description });
+                
+                console.log(item.itemName);
+                const updatedCollection = await Collection.findByIdAndUpdate(
                     { _id: collectionId },
-                    { $push: { items: { itemName, description} } },
+                    { $push: { items: item._id } },
                     { new: true, runValidators: true }
                 );
+                console.log(updatedCollection);
                 return updatedCollection;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
         addComment: async (parent, { itemId, commentText }, context) => {
             if (context.user) {
+                const userEmail = context.user.email;
+                console.log(userEmail);
                 const updatedItem = await Item.findOneAndUpdate(
                     { _id: itemId },
-                    { $push: { comments: { commentText, email: context.user.email } } },
+                    { $push: { comments: { commentText, userEmail } } },
                     { new: true }
                 );
                 return updatedItem;

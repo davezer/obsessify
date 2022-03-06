@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const itemSchema = require('./Item');
+// const itemSchema = require('./Item');
 
 const collectionSchema = new Schema(
   {
@@ -15,7 +15,15 @@ const collectionSchema = new Schema(
       minlength: 1,
       maxlength: 280
     },
-    items: [itemSchema]
+    email: {
+      type: String
+    },
+    items: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
+      }
+    ]
   },
   {
     toJSON: {

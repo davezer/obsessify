@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const commentSchema = require('./Comment');
 
 const itemSchema = new Schema(
@@ -26,4 +26,6 @@ itemSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 })
 
-module.exports = itemSchema;
+const Item = model('Item', itemSchema);
+
+module.exports = Item;
