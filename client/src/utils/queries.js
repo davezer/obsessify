@@ -7,8 +7,12 @@ export const GET_ME = gql`
       username
       email
       collection {
-       
+       collectionName
+       category
+       username
+       items
       }
     }
   }
 `;
+
