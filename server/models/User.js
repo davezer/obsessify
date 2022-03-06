@@ -48,3 +48,5 @@ userSchema.virtual('collectionCount').get(function() {
 const User = model('User', userSchema);
 
 module.exports = User;
+
+
