@@ -23,3 +23,36 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_ITEM = gql`
+  mutation saveItem($item: itemInput!){
+    saveItem(item: $item){
+      _id
+      username
+      email
+      collection {
+        itemName
+        description
+        username
+        comments
+      }
+    }
+  }
+`;
+
+export const REMOVE_ITEM = gql`
+  mutation removeItem($itemId: String!) {
+    removeItem(itemId: $itemId) {
+      _id
+      username
+      email
+      item {
+        itemName
+        description
+        username
+        comments
+      }
+      commentCount
+    }
+  }
+`;
