@@ -72,16 +72,16 @@ const resolvers = {
         },
         addItem: async (parent, { collectionId, itemName, description }, context) => {
             if (context.user) {
-                const item = await Item.create({ collectionId, itemName, description });
+                const item = await Item.create({ itemName, description });
+                console.log(item);
                 
-                console.log(item.itemName);
-                const updatedCollection = await Collection.findByIdAndUpdate(
+                await Collection.findByIdAndUpdate(
                     { _id: collectionId },
                     { $push: { items: item._id } },
                     { new: true, runValidators: true }
                 );
-                console.log(updatedCollection);
-                return updatedCollection;
+                
+                return item;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -91,23 +91,26 @@ const resolvers = {
                 console.log(userEmail);
                 const updatedItem = await Item.findOneAndUpdate(
                     { _id: itemId },
-                    { $push: { comments: { commentText, userEmail } } },
+                    { $push: { comments: { commentText, email: userEmail } } },
                     { new: true }
                 );
                 return updatedItem;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        // Mutation to remove a collection from a User
         removeCollection: async (parent, { collectionId }) => {
             return Collection.findOneAndDelete({ _id: collectionId });
         },
+        // Mutation to remove an item from a Collection
         removeItem: async (parent, { collectionId, itemId }) => {
             return Collection.findOneAndUpdate(
                 { _id: collectionId },
-                { $pull: { items: { _id: itemId} } },
+                { $pull: { items: itemId } },
                 { new: true }
             )
         },
+        // Mutation to remove a comment from an Item
         removeComment: async (parent, { itemId, commentId }) => {
             return Item.findOneAndUpdate(
                 { _id: itemId },
