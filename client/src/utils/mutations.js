@@ -40,14 +40,13 @@ export const ADD_ITEM = gql`
       _id
       itemName
       description
-      }
     }
   }
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($itemId: ID!, commentText: String!) {
-    addComment(itemId: $itemId, commentText: $commentId) {
+  mutation addComment($itemId: ID!, $commentText: String!) {
+    addComment(itemId: $itemId, commentText: $commentText) {
       _id
       itemName
       comments {
@@ -74,12 +73,13 @@ export const REMOVE_ITEM = gql`
       _id
       itemName
       description
+    }
   }
 `;
 
 export const REMOVE_COMMENT = gql`
   mutation removeComment($commentId: ID!) {
-    removeComment(commentId: $commentId:) {
+    removeComment(commentId: $commentId) {
       _id
       itemName
       comments {
