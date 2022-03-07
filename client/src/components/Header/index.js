@@ -8,8 +8,9 @@ import Home from '../Home/index.js';
 
 
 function Header() {
+   
     const [currentPage, handlePageChange] = useState("About");
-    
+     console.log(currentPage)
     const renderPage = () => {
         switch(currentPage) {
 
