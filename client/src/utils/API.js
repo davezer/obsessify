@@ -1,3 +1,3 @@
-export const searchGoogleItems = (query) => {
-    return fetch(`https://www.google.com/${query}`);
-  };
+export const searchGoogleBooks = (query) => {
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+};

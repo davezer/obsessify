@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { Route, Switch } from 'react-router-dom';
 import Navigation from '../Nav/index.js';
-import Collection from '../MyCollection/index.js';
+import Collection from '../Collection/index.js';
 import About from '../About/index.js';
 import Home from '../Home/index.js';
 
@@ -9,8 +9,7 @@ import Home from '../Home/index.js';
 
 function Header() {
    
-    const [currentPage, handlePageChange] = useState("About");
-     console.log(currentPage)
+    const [currentPage, handlePageChange] = useState("Home");
     const renderPage = () => {
         switch(currentPage) {
 
@@ -40,15 +39,5 @@ function Header() {
 
 }
 
-// function Header({ children }) {
-//     return (
-//       <div
-//         style={{ height: 560, clear: "both", paddingTop: 120, textAlign: "center" }}
-//       >
-//         {children}
-//       </div>
-//     );
-//   }
-  
 
 export default Header;

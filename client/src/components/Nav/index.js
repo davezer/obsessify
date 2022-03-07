@@ -43,10 +43,13 @@ function Navigation (props) {
         </Container>
       </Navbar>
       <Modal
+        {...props}
         size='lg'
+        color='#262626'
         show={showModal}
         onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
+        aria-labelledby='signup-modal'
+        centered>
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
@@ -79,66 +82,5 @@ function Navigation (props) {
   );
 }
 
-// function Navigation() {
-
-//   function showNavigation() {
-//     if (Auth.loggedIn()) {
-//       return (
-//         <ul className="flex-row">
-//           <li className="mx-1">
-//             <Link to="/">
-//               Events
-//             </Link>
-//           </li>
-//           <li className="mx-1">
-//             <Link to="/profile">
-//               Profile
-//             </Link>
-//           </li>
-//           <li className="mx-1">
-//             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-//             <a href="/" onClick={() => Auth.logout()}>
-//               Logout
-//             </a>
-//           </li>
-//         </ul>
-//       );
-//     } else {
-//       return (
-//         <ul className="flex-row">
-//           <li className="mx-1">
-//             <Link to="/">
-//               Events
-//             </Link>
-//           </li>
-//           <li className="mx-1">
-//             <Link to="/signup">
-//               Signup
-//             </Link>
-//           </li>
-//           <li className="mx-1">
-//             <Link to="/login">
-//               Login
-//             </Link>
-//           </li>
-//         </ul>
-//       );
-//     }
-//   }
-
-//   return (
-//     <header className="flex-row px-1">
-//       <h1>
-//         <Link to="/">
-//           Obsessify
-//         </Link>
-//       </h1>
-
-//       <nav>
-//         {showNavigation()}
-//       </nav>
-//     </header>
-//   );
-// }
 
 export default Navigation;

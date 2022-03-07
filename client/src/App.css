@@ -1,12 +1,12 @@
 :root {
   --font-family: 'Montserrat', sans-serif;
-  --platinum: #D8E2DC;
-  --gunmetal: #232C33;
-  --blue: #3185FC;
-  --dark-red: #8D0801;
+  --platinum: #F1FAEE;
+  --gunmetal: #262626;
+  --blue: #7EA3CC;
+  --lapis: #255C99;
 
   --timing: 300ms;
-  --scale: 1
+  --scale: .9
 }
 
 body {
@@ -22,7 +22,7 @@ body {
 /* NAVBAR */
 
 .brand-con {
-  margin: 0px -565px 23px 18px;
+  margin: 0px -565px 0px 18px;
 }
 
 .brand {
@@ -37,6 +37,7 @@ body {
   top: 0;
   transition: top 0.3s;
   opacity: 100%;
+  border-bottom: 2px solid var(--platinum);
 }
 
 
@@ -50,20 +51,69 @@ body {
 }
 
 .nav-link.active {
-  color: var(--dark-red);
+  color: var(--lapis);
 }
 
 .navbar-nav {
-  
-  border: 2px solid var(--gunmetal);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 2px;
   opacity: 100%;
   text-align: center;
-  justify-content: space-evenly;  
+  
 }
 
+/* HOME */
+.home-div {
+  background: var(--gunmetal);
+  margin: auto;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 90%;
+}
 
+.home-container {
+  background-color: var(--gunmetal);
+  width: 90%;
+  justify-content: space-around;
+}
+
+.home-title {
+  background: var(--gunmetal);
+  padding: 2rem 2rem 2rem 2rem;
+  color: var(--lapis);
+  text-align: center;
+  margin-bottom: 53px;
+
+}
+
+.home-rows {
+  text-align: center;
+}
+
+.random-card {
+  background-color: #262626;
+  border: solid 3px var(--platinum);
+  border-radius: 10px;
+}
+
+.random-title {
+  color: var(--platinum);
+  padding-bottom: 19px;
+  font-size: 25px;
+}
+
+.random-text {
+  color: var(--blue);
+  padding-bottom: 10px;
+}
+
+.random-button  {
+  background-color: var(--blue);
+  border: solid 3px var(--lapis);
+}
+
+.random-button:hover {
+  background-color: var(--lapis);
+
+}
 
 /* FOOTER */
 
@@ -116,7 +166,7 @@ footer h4:hover {
 }
 
 .social-icons i {
-  color: var(--dark-red);
+  color: var(--lapis);
   position: absolute;
   top: 21px;
   left: 21px;
@@ -149,7 +199,7 @@ footer h4:hover {
 .social-icons a:hover i {
   transform: scale(2.2);
   color: var(--platinum);
-  background: -webkit-linear-gradient(45deg, var(--blue), var(--dark-red));
+  background: -webkit-linear-gradient(45deg, var(--blue), var(--lapis));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
