@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-function Landing() {
+function About() {
     return(
         <>
         <section id="about" className="about">
@@ -35,4 +35,4 @@ function Landing() {
 
 
 
-export default Landing;
+export default About;
