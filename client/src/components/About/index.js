@@ -1,11 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 
 function About() {
     return(
         <>
         <section id="about" className="about">
-            <Container className='row upper-container'> 
+            <container className='row upper-container'> 
                 <div className="image-container">
                     
                     <h1 className="intro-title">We are</h1>
@@ -16,7 +15,7 @@ function About() {
                         
                     </span>
                 </div>
-            </Container>
+            </container>
             <div className="inner-container">
                 <div className="row">
                     <div className="about-description col-lg-6 col-md-12">

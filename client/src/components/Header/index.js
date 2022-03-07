@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
-import Navigation from '../Nav/index';
-import Collection from '../MyCollection/index';
-import About from '../About/index';
+// import { Route, Switch } from 'react-router-dom';
+import Navigation from '../Nav/index.js';
+import Collection from '../MyCollection/index.js';
+import About from '../About/index.js';
+import Home from '../Home/index.js';
+
 
 
 function Header() {
-    const [currentPage, handlePageChange] = useState('Landing');
+    const [currentPage, handlePageChange] = useState("About");
     
     const renderPage = () => {
         switch(currentPage) {
+
+            case "Home":
+                return <Home></Home>
             case "About":
                 return <About></About>
             case "Collection":
                 return <Collection></Collection>
             
+            
             default:
-                return <About />;
+                return <Home />;
         }
     };
 
@@ -31,5 +38,16 @@ function Header() {
     );
 
 }
+
+// function Header({ children }) {
+//     return (
+//       <div
+//         style={{ height: 560, clear: "both", paddingTop: 120, textAlign: "center" }}
+//       >
+//         {children}
+//       </div>
+//     );
+//   }
+  
 
 export default Header;

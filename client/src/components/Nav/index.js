@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from '../SignUpForm';
 import LoginForm from '../LoginForm';
 
@@ -12,7 +13,7 @@ function Navigation (props) {
     <>
       <Navbar className="navbar" sticky="top" id="navbar" bg="" expand="md">
         <Container className="brand-con">
-          <Navbar.Brand className ="brand" href="./index.html/">Obsessify</Navbar.Brand>
+          <Navbar.Brand className ="brand" href="/">Obsessify</Navbar.Brand>
         </Container>
         <Container>  
           <Nav className="nav-links">
@@ -77,5 +78,67 @@ function Navigation (props) {
     
   );
 }
+
+// function Navigation() {
+
+//   function showNavigation() {
+//     if (Auth.loggedIn()) {
+//       return (
+//         <ul className="flex-row">
+//           <li className="mx-1">
+//             <Link to="/">
+//               Events
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/profile">
+//               Profile
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+//             <a href="/" onClick={() => Auth.logout()}>
+//               Logout
+//             </a>
+//           </li>
+//         </ul>
+//       );
+//     } else {
+//       return (
+//         <ul className="flex-row">
+//           <li className="mx-1">
+//             <Link to="/">
+//               Events
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/signup">
+//               Signup
+//             </Link>
+//           </li>
+//           <li className="mx-1">
+//             <Link to="/login">
+//               Login
+//             </Link>
+//           </li>
+//         </ul>
+//       );
+//     }
+//   }
+
+//   return (
+//     <header className="flex-row px-1">
+//       <h1>
+//         <Link to="/">
+//           Obsessify
+//         </Link>
+//       </h1>
+
+//       <nav>
+//         {showNavigation()}
+//       </nav>
+//     </header>
+//   );
+// }
 
 export default Navigation;
