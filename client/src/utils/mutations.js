@@ -24,35 +24,68 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SAVE_ITEM = gql`
-  mutation saveItem($item: itemInput!){
-    saveItem(item: $item){
+export const ADD_COLLECTION = gql`
+  mutation addCollection($collectionName: String!, $category: String!) {
+    addCollection(collectionName: $collection, category: $category) {
       _id
-      username
-      email
-      collection {
-        itemName
-        description
-        username
-        comments
+      collectionName
+      category
+    }
+  }
+`;
+
+export const ADD_ITEM = gql`
+  mutation addItem($collectionId: ID!, $itemName: String!, $description: String!) {
+    addItem(collectionId: $collectionId, itemName: $itemName, description: $description) {
+      _id
+      itemName
+      description
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($itemId: ID!, $commentText: String!) {
+    addComment(itemId: $itemId, commentText: $commentText) {
+      _id
+      itemName
+      comments {
+        _id
+        commentText
       }
     }
   }
 `;
 
+export const REMOVE_COLLECTION = gql`
+  mutation removeCollection($collectionId: ID!) {
+    removeCollection(collectionId: $collectionId) {
+      _id
+      collectionName
+      category
+    }
+  }
+`;
+
 export const REMOVE_ITEM = gql`
-  mutation removeItem($itemId: String!) {
+  mutation removeItem($itemId: ID!) {
     removeItem(itemId: $itemId) {
       _id
-      username
-      email
-      item {
-        itemName
-        description
-        username
-        comments
+      itemName
+      description
+    }
+  }
+`;
+
+export const REMOVE_COMMENT = gql`
+  mutation removeComment($commentId: ID!) {
+    removeComment(commentId: $commentId) {
+      _id
+      itemName
+      comments {
+        _id
+        commentText
       }
-      commentCount
     }
   }
 `;
