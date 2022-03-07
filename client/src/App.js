@@ -1,5 +1,7 @@
 import './App.css';
 import Header from './components/Header/index';
+// import library here
+import './assets/libraries/bootstrap.css';
 
 //import app.css
 import './App.css'

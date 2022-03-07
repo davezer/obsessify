@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../Nav/index';
-import MyCollection from '../MyCollection/index';
-import Landing from '../Landing/index';
+import Collection from '../MyCollection/index';
+import About from '../About/index';
 
 
 function Header() {
@@ -9,13 +9,13 @@ function Header() {
     
     const renderPage = () => {
         switch(currentPage) {
-            case "Landing":
-                return <Landing></Landing>
-            case "MyCollection":
-                return <MyCollection></MyCollection>
+            case "About":
+                return <About></About>
+            case "Collection":
+                return <Collection></Collection>
             
             default:
-                return "Landing";
+                return <About />;
         }
     };
 

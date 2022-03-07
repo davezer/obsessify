@@ -19,6 +19,52 @@ body {
   min-width: fit-content;
 }
 
+/* NAVBAR */
+
+.brand-con {
+  margin: 0px -565px 23px 18px;
+}
+
+.brand {
+  color: var(--platinum)!important;
+  font-size: 37px;
+  padding-top: 1px;
+}
+
+.navbar {
+  background-color: var(--gunmetal);
+  position: sticky;
+  top: 0;
+  transition: top 0.3s;
+  opacity: 100%;
+}
+
+
+
+.nav-link {
+  color: var(--platinum)!important;
+  font-size: 18px;
+  padding: 1rem;
+  text-decoration: none;
+  
+}
+
+.nav-link.active {
+  color: var(--dark-red);
+}
+
+.navbar-nav {
+  
+  border: 2px solid var(--gunmetal);
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 100%;
+  text-align: center;
+  justify-content: space-evenly;  
+}
+
+
+
 /* FOOTER */
 
 footer {
@@ -109,6 +155,7 @@ footer h4:hover {
   -webkit-text-fill-color: transparent;
   transition: all var(--timing) ease-in;
 }
+
 
 
 @media (prefers-reduced-motion: no-preference) {
