@@ -45,9 +45,9 @@ const typeDefs = gql`
         user(email: String!): User
         collections(email: String): [Collection]
         collection(_id: ID!): Collection
-        items: [Item]
+        items(collectionId: ID!): [Item]
         item(_id: ID!): Item
-        comments: [Comment]
+        comments(commentId: ID!): [Comment]
         comment(_id: ID!): Comment
     }
     
