@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from '../SignUpForm';
 import LoginForm from '../LoginForm';
@@ -34,12 +33,12 @@ function Navigation (props) {
           <Nav className='ml-auto'>
               {Auth.loggedIn() ? (
                 <>
-                  <Link onClick={Auth.logout}>Logout</Link>
+                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
-            </Nav>
+          </Nav>
         </Container>
       </Navbar>
       <Modal
