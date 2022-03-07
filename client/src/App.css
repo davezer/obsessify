@@ -107,7 +107,7 @@ body {
 .random-card {
   background-color: var(--gunmetal);
   border: solid 3px var(--platinum);
-  box-shadow: 3px 3px var(--lapis), -.4em 0 .4em var(--yellow);
+  box-shadow: 3px 3px var(--lapis);
   border-radius: 10px;
 }
 
@@ -132,6 +132,26 @@ body {
   background-color: var(--blue);
   border: solid 3px var(--blue)
 
+}
+
+
+/* CAROUSEL  */
+
+.carousel-caption {
+  align-items: flex-start;
+}
+
+.carousel-img {
+  width: auto;
+  height: 65%;
+}
+
+.carousel-name {
+  margin-bottom: 20%;
+  color: var(--platinum);
+}
+.carousel-item {
+  align-items: center;
 }
 
 /* FOOTER */
@@ -241,7 +261,6 @@ footer h4:hover {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
   outline: 0;
-  color: var(--gunmetal);
 }
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, -25%);
@@ -324,6 +343,7 @@ footer h4:hover {
 .modal-footer .btn + .btn {
   margin-bottom: 0;
   margin-left: 5px;
+  background-color: var(--platinum);
 }
 .modal-footer .btn-group .btn + .btn {
   margin-left: -1px;
@@ -344,8 +364,8 @@ footer h4:hover {
     margin: 30px auto;
   }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 5px 15px var(--blue);
+    box-shadow: 0 5px 15px var(--platinum);
   }
   .modal-sm {
     width: 300px;
