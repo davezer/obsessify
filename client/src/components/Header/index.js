@@ -15,11 +15,11 @@ function Header() {
 
             case "Home":
                 return <Home></Home>
-            case "About":
-                return <About></About>
+            
             case "Collection":
                 return <Collection></Collection>
-            
+            case "About":
+                return <About></About>
             
             default:
                 return <Home />;
