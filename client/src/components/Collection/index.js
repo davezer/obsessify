@@ -12,18 +12,20 @@ const Collection = () => {
     const [removeCollection] = useMutation(REMOVE_COLLECTION);
     const userData = data?.me || {};
     console.log(data);
-    // create a function to remove items from collections
-    const handleDeleteItem = async (collectionName) => {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // create a function to remove a collection from a user
+    const handleDeleteCollection = async (collectionId) => {
+        // const token = Auth.loggedIn() ? Auth.getToken() : null;
+        // if(!token) {
+        //     return false;
+        // }
+        console.log(collectionId);
 
-        if(!token) {
-            return false;
-        }
 
         try {
-            await removeCollection({
-                variables: { collectionName }
-            });
+            await removeCollection(collectionId);
+            // await removeCollection({
+            //     variables: { collectionId }
+            // });
 
         } catch (err) {
             console.log(err);
@@ -48,15 +50,15 @@ const Collection = () => {
                     : 'You have no collections!'}
                 </h2>
                 <Card>
-                {userData?.collections.map((collection) => {
+                {userData.collections?.map((collection) => {
                     return (
                     <Card key={collection.collectionId} border='dark'>
                         {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
                         <Card.Body>
                         <Card.Title>{collection.collectionName}</Card.Title>
                         <p className='small'>Collection: {collection.collectionName}</p>
-                        <Card.Text>{collection.category}</Card.Text>
-                        <Button className='btn-block btn-danger' onClick={() => handleDeleteItem(collection.collectionId)}>
+                        <Card.Text>Category: {collection.category}</Card.Text>
+                        <Button className='btn-block btn-danger' onClick={() => handleDeleteCollection(collection.collectionId)}>
                             Delete this collection!
                         </Button>
                         </Card.Body>

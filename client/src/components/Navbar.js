@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import SignupForm from './SignupForm';
+import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
@@ -53,7 +53,7 @@ const AppNavbar = () => {
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
-                <SignupForm handleModalClose={() => setShowModal(false)} />
+                <SignUpForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

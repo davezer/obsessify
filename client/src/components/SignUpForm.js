@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-const SignupForm = () => {
+const SignUpForm = () => {
 
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
     const [validated] = useState(false);
@@ -46,8 +46,6 @@ const SignupForm = () => {
         password: '',
       });
     };
-
- 
   
     return (
       <>
@@ -91,4 +89,4 @@ const SignupForm = () => {
     );
   };
   
-  export default SignupForm;
+  export default SignUpForm;
