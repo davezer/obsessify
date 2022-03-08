@@ -36,10 +36,20 @@ body {
 
 .navbar {
   background-color: var(--gunmetal);
+  margin-bottom: 48px;
   position: sticky;
   top: 0;
   transition: top 0.3s;
   opacity: 100%;
+}
+
+.nav-item li {
+  color: var(--platinum)!important;
+  font-size: 18px;
+  padding: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 
@@ -49,22 +59,24 @@ body {
   font-size: 18px;
   padding: 1rem;
   text-decoration: none;
-  
+  cursor: pointer;
 }
 
 .nav-links-con {
   margin: 24px 0px -12px 0px;
 }
 
-.nav-link.active {
+.nav-item.active li {
   color: var(--platinum)!important;
   text-shadow: 1px 1px var(--lapis);
+  cursor: pointer;
 }
 
 .navbar-nav {
   padding: 2px;
   opacity: 100%;
   text-align: center;
+  margin: 0px 37px 0px -266px;
   
 }
 

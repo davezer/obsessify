@@ -37,15 +37,7 @@ function Navigation (props) {
                   {(Page.name)}
                 </span>
               </li>
-              // {/* <a
-              //   href={'/' + tab.toLowerCase()}
-              //   onClick={() => props.handlePageChange(tab)}
-              //   className={
-              //     props.currentPage === tab ? 'nav-link active' : 'nav-link'
-              //   }
-              // >
-              //   {tab}
-              // </a> */}
+              
               ))}
             </ul>
           </Nav>
