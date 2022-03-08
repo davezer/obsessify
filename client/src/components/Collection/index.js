@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+// mport { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/client';
 
 import { GET_ME } from '../../utils/queries';
 import { REMOVE_COLLECTION } from '../../utils/mutations';
@@ -11,21 +12,21 @@ const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
     const [removeCollection] = useMutation(REMOVE_COLLECTION);
     const userData = data?.me || {};
-    console.log(data);
     // create a function to remove a collection from a user
     const handleDeleteCollection = async (collectionId) => {
-        // const token = Auth.loggedIn() ? Auth.getToken() : null;
-        // if(!token) {
-        //     return false;
-        // }
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if(!token) {
+            return false;
+        }
         console.log(collectionId);
-
+        console.log(userData._id);
+        console.log(token);
 
         try {
-            await removeCollection(collectionId);
-            // await removeCollection({
-            //     variables: { collectionId }
-            // });
+            // await removeCollection(collectionId);
+            await removeCollection({
+                variables: { collectionId }
+            });
 
         } catch (err) {
             console.log(err);
@@ -52,13 +53,16 @@ const Collection = () => {
                 <Card>
                 {userData.collections?.map((collection) => {
                     return (
-                    <Card key={collection.collectionId} border='dark'>
+                    <Card key={collection._id} border='dark'>
                         {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
                         <Card.Body>
                         <Card.Title>{collection.collectionName}</Card.Title>
                         <p className='small'>Collection: {collection.collectionName}</p>
                         <Card.Text>Category: {collection.category}</Card.Text>
-                        <Button className='btn-block btn-danger' onClick={() => handleDeleteCollection(collection.collectionId)}>
+                        <Button 
+                            className='btn-block btn-danger' 
+                            onClick={() => handleDeleteCollection(collection._id)}
+                        >
                             Delete this collection!
                         </Button>
                         </Card.Body>

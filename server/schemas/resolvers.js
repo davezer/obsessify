@@ -100,8 +100,17 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         // Mutation to remove a collection from a User
-        removeCollection: async (parent, { collectionId }) => {
-            return Collection.findOneAndDelete({ _id: collectionId });
+        removeCollection: async (parent, {  collectionId }, context) => {
+            // return Collection.findOneAndDelete({ _id: collectionId });
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { collections: collectionId } },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
         // Mutation to remove an item from a Collection
         removeItem: async (parent, { collectionId, itemId }) => {

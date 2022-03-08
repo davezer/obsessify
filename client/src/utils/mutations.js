@@ -61,8 +61,12 @@ export const REMOVE_COLLECTION = gql`
   mutation removeCollection($collectionId: ID!) {
     removeCollection(collectionId: $collectionId) {
       _id
-      collectionName
-      category
+      email
+      collectionCount
+      collections {
+        _id
+        collectionName
+      }
     }
   }
 `;
