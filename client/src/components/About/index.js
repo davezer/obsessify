@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 function About() {
     return(
         <>
-        <section id="about" className="about">
+        <Container id="about" className="about">
             <Container className='row upper-container'> 
                 <div className="image-container">
                     
@@ -17,18 +17,20 @@ function About() {
                     </span>
                 </div>
             </Container>
-            <div className="inner-container">
-                <div className="row">
-                    <div className="about-description col-lg-6 col-md-12">
-                        <p>
-                            Here at Obsessify we strive to bring together a community of collectors of all things sports and pop culture to show off their collections. <br></br>
-                            From grails to sentimental pieces, we encourage you to show it off!
-                        </p>
-                       
+            <Container>
+                <div className="inner-container">
+                    <div className="row">
+                        <div className="about-description col-lg-6 col-md-12">
+                            <p>
+                                Here at Obsessify we strive to bring together a community of collectors of all things sports and pop culture to show off their collections. <br></br>
+                                From grails to sentimental pieces, we encourage you to show it off!
+                            </p>
+                        
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </Container>    
+        </Container>
         </>
     );
 }

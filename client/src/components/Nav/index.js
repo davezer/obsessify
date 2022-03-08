@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from '../SignUpForm';
 import LoginForm from '../LoginForm';
 
@@ -7,14 +8,14 @@ import Auth from '../../utils/auth';
 
 function Navigation (props) {
   const [showModal, setShowModal] = useState(false);
-  const tabs = ['About', 'Collection', 'Browse', 'Random'];
+  const tabs = [ 'Collection', 'Browse', 'Random','About'];
   return (
     <>
       <Navbar className="navbar" sticky="top" id="navbar" bg="" expand="md">
         <Container className="brand-con">
-          <Navbar.Brand className ="brand" href="./index.html/">Obsessify</Navbar.Brand>
+          <Navbar.Brand className ="brand" href="/"><em>Obsessify</em></Navbar.Brand>
         </Container>
-        <Container>  
+        <Container className="nav-links-con">  
           <Nav className="nav-links">
             {tabs.map(tab => (
             <ul className="nav-item" key={tab}>
@@ -30,7 +31,7 @@ function Navigation (props) {
             </ul>
               ))}
           </Nav>
-          <Nav className='ml-auto'>
+          <Nav className='ml-auto login'>
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
@@ -42,14 +43,17 @@ function Navigation (props) {
         </Container>
       </Navbar>
       <Modal
+        {...props}
         size='lg'
+        color='#262626'
         show={showModal}
         onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
+        aria-labelledby='signup-modal'
+        centered>
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='login'>
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
+          <Modal.Header className="modal-header" closeButton>
+            <Modal.Title className="modal-title" id='signup-modal'>
               <Nav variant='pills'>
                 <Nav.Item>
                   <Nav.Link eventKey='login'>Login</Nav.Link>
@@ -60,7 +64,7 @@ function Navigation (props) {
               </Nav>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="modal-body">
             <Tab.Content>
               <Tab.Pane eventKey='login'>
                 <LoginForm handleModalClose={() => setShowModal(false)} />
@@ -77,5 +81,6 @@ function Navigation (props) {
     
   );
 }
+
 
 export default Navigation;
