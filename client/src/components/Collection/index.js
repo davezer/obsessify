@@ -1,17 +1,36 @@
-import React from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
+import React, { useState, useRef }from 'react';
+import AddItem from '../AddItem';
+import { Container, Card, Button, Form } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { GET_ME } from '../../utils/queries';
-import { REMOVE_COLLECTION } from '../../utils/mutations';
+import { REMOVE_COLLECTION, ADD_ITEM } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+// import Auth from '../../utils/auth';
 
 const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
     const [removeCollection] = useMutation(REMOVE_COLLECTION);
     const userData = data?.me || {};
     console.log(data);
+
+    // const UploadFile = async (collectionId) => {
+
+    //     const [uploadedFileName, setUploadedFileName] = useState('Choose Image');
+    //         const inputRef = useRef(HTMLInputElement);
+
+    //         const handleUpload = () => {
+    //             inputRef.current?.click();
+    //         };
+    //         const handleDisplayFileDetails = () => {
+    //             inputRef.current?.files &&
+    //             setUploadedFileName(inputRef.current.files[0].name);
+    //         };
+
+
+    // }
+    
+
     // create a function to remove a collection from a user
     const handleDeleteCollection = async (collectionId) => {
         // const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -34,7 +53,9 @@ const Collection = () => {
     
     if (loading) {
         return <div>Loading...</div>;
-    }
+    };
+
+   
 
     return (
         <>
@@ -67,6 +88,49 @@ const Collection = () => {
                 })}
                 </Card>
             </Container>
+            <Container>
+                <AddItem></AddItem>
+            </Container>
+            {/* <Container class="dashboard-create shadow">
+                <h2>Add New Item</h2>
+                <Form class="new-item-form">
+                    <div>
+                        <label for="item-name">Name</label>
+                        <input type="text" id="item-name" name="item-name" />
+                    </div>
+                    <div>
+                        <label for="item-description">Description</label>
+                        <textarea id="item-text" name="item-text"></textarea>
+                    </div>
+                    <div>
+                        <label for="item-category">Category</label>
+                        <select name="item-category" id="item-category">
+                            <option value="1">Sports</option>
+                            <option value="2">Comics</option>
+                            <option value="3">Coins</option>
+                            <option value="4">Stamps</option>
+                        </select>
+                    </div>
+                    <div className="m-3">
+                        <label className="mx-3"></label>
+                        <input
+                            id="input-file"
+                            onChange={handleDisplayFileDetails}
+                            className="d-none"
+                            type="file"
+                        />
+                        <button
+                            onClick={handleUpload}
+                            className={`btn btn-outline-${
+                            uploadedFileName ? "success" : "primary"
+                            }`}
+                        >
+                            {uploadedFileName ? uploadedFileName : "Upload"}
+                        </button>
+                    </div>
+                    <Button type="submit">Add</Button>
+                </Form>
+            </Container> */}
         </>
     )
 }
