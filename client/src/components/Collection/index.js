@@ -11,7 +11,7 @@ const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
     const [removeCollection] = useMutation(REMOVE_COLLECTION);
     const userData = data?.me || {};
-    console.log(userData.collections.collectionCount);
+    console.log(data);
     // create a function to remove items from collections
     const handleDeleteItem = async (collectionName) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -43,12 +43,12 @@ const Collection = () => {
             </Container>
             <Container>
                 <h2>
-                {userData?.collections.collectionCount
-                    ? `Viewing ${userData.collections.collectionCount} saved ${userData.collections.collectionCount === 1 ? 'collection' : 'collections'}:`
+                {userData?.collectionCount
+                    ? `Viewing ${userData.collectionCount} saved ${userData.collectionCount === 1 ? 'collection' : 'collections'}:`
                     : 'You have no collections!'}
                 </h2>
                 <Card>
-                {userData?.savedItems.map((item) => {
+                {userData?.collections.map((collection) => {
                     return (
                     <Card key={collection.collectionId} border='dark'>
                         {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
