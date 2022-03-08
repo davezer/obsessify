@@ -1,19 +1,18 @@
 import { gql } from "@apollo/client";
 
 export const GET_ME = gql`
-  {
+  query {
     me {
       _id
       email
-      collection {
+      collections {
         _id
         collectionName
         category
-        email
+        collectionCount
         items {
           _id
           itemName
-          email
           commentCount
         }
       }

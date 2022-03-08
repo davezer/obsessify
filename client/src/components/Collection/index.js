@@ -3,17 +3,17 @@ import { Container, Card, Button } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { GET_ME } from '../../utils/queries';
-import { REMOVE_ITEM } from '../../utils/mutations';
+import { REMOVE_COLLECTION } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
 const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
-    const [deleteItem] = useMutation(REMOVE_ITEM);
+    const [removeCollection] = useMutation(REMOVE_COLLECTION);
     const userData = data?.me || {};
-
+    console.log(userData.collections.collectionCount);
     // create a function to remove items from collections
-    const handleDeleteItem = async (itemName) => {
+    const handleDeleteItem = async (collectionName) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if(!token) {
@@ -21,8 +21,8 @@ const Collection = () => {
         }
 
         try {
-            await deleteItem({
-                variables: { itemName }
+            await removeCollection({
+                variables: { collectionName }
             });
 
         } catch (err) {
@@ -38,26 +38,26 @@ const Collection = () => {
         <>
             <Container fluid className='text-light bg-dark'>
                 <Container>
-                <h1>Your Collection</h1>
+                <h1>Your Collections</h1>
                 </Container>
             </Container>
             <Container>
                 <h2>
-                {userData.savedItems.length
-                    ? `Viewing ${userData.savedItems.length} saved ${userData.savedItems.length === 1 ? 'item' : 'items'}:`
-                    : 'You have no items!'}
+                {userData.collections.length
+                    ? `Viewing ${userData.collections.length} saved ${userData.collections.length === 1 ? 'collection' : 'collections'}:`
+                    : 'You have no collections!'}
                 </h2>
                 <Card>
-                {userData.savedItems.map((item) => {
+                {userData.collections.map((collection) => {
                     return (
-                    <Card key={item.itemId} border='dark'>
-                        {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null}
+                    <Card key={collection.collectionId} border='dark'>
+                        {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
                         <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <p className='small'>Item: {item.name}</p>
-                        <Card.Text>{item.description}</Card.Text>
-                        <Button className='btn-block btn-danger' onClick={() => handleDeleteItem(item.itemId)}>
-                            Delete this item!
+                        <Card.Title>{collection.collectionName}</Card.Title>
+                        <p className='small'>Collection: {collection.collectionName}</p>
+                        <Card.Text>{collection.category}</Card.Text>
+                        <Button className='btn-block btn-danger' onClick={() => handleDeleteItem(collection.collectionId)}>
+                            Delete this collection!
                         </Button>
                         </Card.Body>
                     </Card>

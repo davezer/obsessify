@@ -6,13 +6,11 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
-    // set initial form state
+
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    // set state for form validation
     const [validated] = useState(false);
-    // set state for alert
     const [showAlert, setShowAlert] = useState(false);
-    const [addUser] = useMutation(ADD_USER);
+    const [createUser] = useMutation(ADD_USER);
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -22,7 +20,6 @@ const SignupForm = () => {
     const handleFormSubmit = async (event) => {
       event.preventDefault();
   
-      // check if form has everything (as per react-bootstrap docs)
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
         event.preventDefault();
@@ -30,7 +27,7 @@ const SignupForm = () => {
       }
   
       try {
-        const { data } = await addUser({
+        const { data } = await createUser({
           variables: { ...userFormData }
         });
   
@@ -41,20 +38,17 @@ const SignupForm = () => {
       }
   
       setUserFormData({
-        email: "",
-        password: "",
+        email: '',
+        password: '',
       });
     };
   
     return (
       <>
-        {/* This is needed for the validation functionality above */}
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-          {/* show alert if server response is bad */}
           <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
             Something went wrong with signing you up!
           </Alert>
-  
           <Form.Group>
             <Form.Label htmlFor='email'>Email</Form.Label>
             <Form.Control
