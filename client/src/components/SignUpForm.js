@@ -10,7 +10,7 @@ const SignupForm = () => {
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-    const [createUser] = useMutation(ADD_USER);
+    const [addUser, { loading, error }] = useMutation(ADD_USER);
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -19,6 +19,8 @@ const SignupForm = () => {
   
     const handleFormSubmit = async (event) => {
       event.preventDefault();
+
+      console.log(userFormData);
   
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
@@ -30,7 +32,9 @@ const SignupForm = () => {
         const { data } = await createUser({
           variables: { ...userFormData }
         });
-  
+        if (error) {
+          JSON.stringify(error);
+        }
         Auth.login(data.addUser.token);
       } catch (err) {
         console.error(err);
@@ -42,6 +46,8 @@ const SignupForm = () => {
         password: '',
       });
     };
+
+ 
   
     return (
       <>

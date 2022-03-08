@@ -43,12 +43,12 @@ const Collection = () => {
             </Container>
             <Container>
                 <h2>
-                {userData.collections.length
-                    ? `Viewing ${userData.collections.length} saved ${userData.collections.length === 1 ? 'collection' : 'collections'}:`
+                {userData?.collections.collectionCount
+                    ? `Viewing ${userData.collections.collectionCount} saved ${userData.collections.collectionCount === 1 ? 'collection' : 'collections'}:`
                     : 'You have no collections!'}
                 </h2>
                 <Card>
-                {userData.collections.map((collection) => {
+                {userData?.savedItems.map((item) => {
                     return (
                     <Card key={collection.collectionId} border='dark'>
                         {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
