@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 // import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Modal, Tab } from 'react-bootstrap';
-import SignUpForm from '../SignUpForm';
+import SignupForm from '../SignUpForm';
 import LoginForm from '../LoginForm';
 
 import Auth from '../../utils/auth';
 
 function Navigation (props) {
   const [showModal, setShowModal] = useState(false);
-  const tabs = [ 'Collection', 'Browse', 'Random','About'];
+  // const tabs = [ 'Collection', 'Browse', 'Random','About'];
+
+  const {
+    pages = [],
+    setCurrentPage,
+    currentPage,
+  } = props;
   return (
     <>
       <Navbar className="navbar" sticky="top" id="navbar" bg="" expand="md">
@@ -17,19 +23,31 @@ function Navigation (props) {
         </Container>
         <Container className="nav-links-con">  
           <Nav className="nav-links">
-            {tabs.map(tab => (
-            <ul className="nav-item" key={tab}>
-              <a
-                href={'#' + tab.toLowerCase()}
-                onClick={() => props.handlePageChange(tab)}
-                className={
-                  props.currentPage === tab ? 'nav-link active' : 'nav-link'
-                }
-              >
-                {tab}
-              </a>
-            </ul>
+            <ul className="nav-item" >
+            {pages.map(Page => (
+              <li
+                className={`mx-5 ${
+                  currentPage.name === Page.name && 'navActive'
+                  }`}
+                key={Page.name}
+                >
+                <span
+                  onClick={() => setCurrentPage(Page)}
+                >
+                  {(Page.name)}
+                </span>
+              </li>
+              // {/* <a
+              //   href={'/' + tab.toLowerCase()}
+              //   onClick={() => props.handlePageChange(tab)}
+              //   className={
+              //     props.currentPage === tab ? 'nav-link active' : 'nav-link'
+              //   }
+              // >
+              //   {tab}
+              // </a> */}
               ))}
+            </ul>
           </Nav>
           <Nav className='ml-auto login'>
               {Auth.loggedIn() ? (
@@ -70,7 +88,7 @@ function Navigation (props) {
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
+                <SignupForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>
