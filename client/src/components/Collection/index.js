@@ -4,9 +4,10 @@ import { Container, Card, Button } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 
 import { GET_ME } from '../../utils/queries';
-import { REMOVE_COLLECTION, ADD_ITEM } from '../../utils/mutations';
+import { REMOVE_COLLECTION } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
+import AddItem from '../AddItem';
 
 const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
