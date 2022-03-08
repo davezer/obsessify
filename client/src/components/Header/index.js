@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 // import { Route, Switch } from 'react-router-dom';
-import Navigation from '../Nav/index.js';
-import Collection from '../Collection/index.js';
-import About from '../About/index.js';
-import Home from '../Home/index.js';
+import Navigation from '../Nav/';
+import Collection from '../Collection/';
+import About from '../About/';
+import Home from '../Home/';
 
 
 
