@@ -42,13 +42,13 @@ const Collection = () => {
                 </Container>
             </Container>
             <Container>
-                <h2>
-                {userData.savedItems.length
+                {/* <h2>
+                {userData?.savedItems.length
                     ? `Viewing ${userData.savedItems.length} saved ${userData.savedItems.length === 1 ? 'item' : 'items'}:`
                     : 'You have no items!'}
                 </h2>
                 <Card>
-                {userData.savedItems.map((item) => {
+                {userData?.savedItems.map((item) => {
                     return (
                     <Card key={item.itemId} border='dark'>
                         {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null}
@@ -63,7 +63,7 @@ const Collection = () => {
                     </Card>
                     );
                 })}
-                </Card>
+                </Card> */}
             </Container>
         </>
     )
