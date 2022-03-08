@@ -5,15 +5,15 @@ export const GET_ME = gql`
     me {
       _id
       email
-      collection {
+      collectionCount
+      collections {
         _id
         collectionName
         category
-        email
+        itemCount
         items {
           _id
           itemName
-          email
           commentCount
         }
       }
