@@ -35,6 +35,7 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, args) => {
+            console.log(args);
             const user = await User.create(args);
             const token = signToken(user);
 
@@ -56,9 +57,9 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addCollection: async (parent, args, context) => {
+        addCollection: async (parent, { collectionName, category }, context) => {
             if (context.user) {
-                const collection = await Collection.create({ ...args, username: context.user.username });
+                const collection = await Collection.create({ collectionName, category });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -70,38 +71,56 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addItem: async (parent, { collectionId, itemBody }, context) => {
+        addItem: async (parent, { collectionId, itemName, description }, context) => {
             if (context.user) {
-                const updatedCollection = await Collection.findOneAndUpdate(
+                const item = await Item.create({ itemName, description });
+                console.log(item);
+                
+                await Collection.findByIdAndUpdate(
                     { _id: collectionId },
-                    { $push: { items: { itemBody, username: context.user.username} } },
+                    { $push: { items: item._id } },
                     { new: true, runValidators: true }
                 );
-                return updatedCollection;
+                
+                return item;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addComment: async (parent, { itemId, commentBody }, context) => {
+        addComment: async (parent, { itemId, commentText }, context) => {
             if (context.user) {
+                const userEmail = context.user.email;
+                console.log(userEmail);
                 const updatedItem = await Item.findOneAndUpdate(
                     { _id: itemId },
-                    { $push: { comments: { commentBody, email: context.user.email } } },
+                    { $push: { comments: { commentText, email: userEmail } } },
                     { new: true }
                 );
                 return updatedItem;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        removeCollection: async (parent, { collectionId }) => {
-            return Collection.findOneAndDelete({ _id: collectionId });
+        // Mutation to remove a collection from a User
+        removeCollection: async (parent, {  collectionId }, context) => {
+            // return Collection.findOneAndDelete({ _id: collectionId });
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { collections: collectionId } },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
+        // Mutation to remove an item from a Collection
         removeItem: async (parent, { collectionId, itemId }) => {
             return Collection.findOneAndUpdate(
                 { _id: collectionId },
-                { $pull: { items: { _id: itemId} } },
+                { $pull: { items: itemId } },
                 { new: true }
             )
         },
+        // Mutation to remove a comment from an Item
         removeComment: async (parent, { itemId, commentId }) => {
             return Item.findOneAndUpdate(
                 { _id: itemId },
@@ -112,5 +131,4 @@ const resolvers = {
     }
 };
 
-// Need to add ability to remove/delete collections, items, and comments
 module.exports = resolvers;

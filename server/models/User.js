@@ -17,7 +17,7 @@ const userSchema = new Schema(
     collections: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Collections'
+        ref: 'Collection'
       }
     ],
   },
@@ -48,3 +48,5 @@ userSchema.virtual('collectionCount').get(function() {
 const User = model('User', userSchema);
 
 module.exports = User;
+
+

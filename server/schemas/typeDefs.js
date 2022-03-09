@@ -12,14 +12,14 @@ const typeDefs = gql`
         _id: ID
         email: String
         collectionCount: Int
-        collections: [Collections]
+        collections: [Collection]
     }
 
     type Collection {
         _id: ID
         collectionName: String
         category: String
-        username: String
+        email: String
         itemCount: Int
         items: [Item]
     }
@@ -28,7 +28,7 @@ const typeDefs = gql`
         _id: ID
         itemName: String
         description: String
-        username: String
+        email: String
         commentCount: Int
         comments: [Comment]
     }
@@ -36,28 +36,28 @@ const typeDefs = gql`
     type Comment {
         _id: ID
         commentText: String
-        username: String
+        email: String
     }
 
     type Query {
         me: User
         users: [User]
-        user(username: String!): User
-        collections(username: String): [Collection]
+        user(email: String!): User
+        collections(email: String): [Collection]
         collection(_id: ID!): Collection
-        items(collectionName: String): [Item]
+        items(collectionId: ID!): [Item]
         item(_id: ID!): Item
-        comments(itemName: String): [Comment]
+        comments(commentId: ID!): [Comment]
         comment(_id: ID!): Comment
     }
     
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(email: String!, password: String!): Auth
-        addCollection(collectionName: String!): User
-        addItem(collectionId: ID!, itemName: String!): Collection
-        addComment(itemId: ID!): Item
-        removeCollection(collectionId: ID!): Collection
+        addCollection(collectionName: String!, category: String!): Collection
+        addItem(collectionId: ID!, itemName: String!, description: String!): Item
+        addComment(itemId: ID!, commentText: String!): Item
+        removeCollection(collectionId: ID!): User
         removeItem(collectionId: ID!, itemId: ID!): Collection
         removeComment(itemId: ID!, commentId: ID!): Item
     }

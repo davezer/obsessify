@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const itemSchema = require('./Item');
 
 const collectionSchema = new Schema(
   {
@@ -10,16 +9,20 @@ const collectionSchema = new Schema(
       maxlength: 280
     },
     category: {
-        type: String,
-        required: 'Please add a category',
-        minlength: 1,
-        maxlength: 280
-    },
-    username: {
       type: String,
-      required: true
+      required: 'Please add a category',
+      minlength: 1,
+      maxlength: 280
     },
-    items: [itemSchema]
+    email: {
+      type: String
+    },
+    items: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
+      }
+    ]
   },
   {
     toJSON: {

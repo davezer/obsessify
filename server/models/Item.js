@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose');
-const commentSchema = require('./Comments');
+const { Schema, model } = require('mongoose');
+const commentSchema = require('./Comment');
+
 
 const itemSchema = new Schema(
   {
@@ -12,10 +13,6 @@ const itemSchema = new Schema(
         type: String,
         required: true,
         maxlength: 280
-    },
-    username: {
-      type: String,
-      required: true
     },
     comments: [commentSchema]
   },
@@ -30,4 +27,6 @@ itemSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 })
 
-module.exports = itemSchema;
+const Item = model('Item', itemSchema);
+
+module.exports = Item;
