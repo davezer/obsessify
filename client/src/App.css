@@ -11,6 +11,8 @@
 }
 
 body {
+  position: relative;
+  min-height: 150vh;
   background-color: var(--gunmetal);
   color: var(--platinum);
   font-family: var(--font-family);
@@ -378,6 +380,10 @@ body {
 /* FOOTER */
 
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
   background: var(--gunmetal);
   padding: 2rem 2rem 2rem 2rem;
   display: flex;

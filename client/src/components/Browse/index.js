@@ -1,55 +1,53 @@
-// import React, { useState, useEffect } from 'react';
-// import { useQuery } from '@apollo/client';
-// import { Jumbotron, Container } from 'react-bootstrap';
-// import { QUERY_COLLECTIONS } from '../../utils/queries';
-// import Auth from '../../utils/auth';
+import React, { useState } from 'react';
+import { Container, Card, Button } from 'react-bootstrap';
+import { useQuery, useMutation } from '@apollo/client';
+
+import { QUERY_COLLECTIONS, QUERY_COLLECTION } from '../../utils/queries';
+
+const Collections = () => {
+    // const [setQuery] = useState('')
+    const { loading, data } = useQuery(QUERY_COLLECTIONS);
+    const {viewCollection} = useQuery(QUERY_COLLECTION);
+    const userData = data?.me || {};
+    const collection = useState(QUERY_COLLECTION)
+
+    return (
+        <>
+            <Container fluid className='browse-header'>
+                <Container>
+                    <h1>Browse Collections</h1>
+                </Container>
+            </Container>  
+            <Container className='collections-container'>
+                <Card className='collections-cards'>
+                    {userData.collections?.map((collections) => {
+                        return (
+                        <Card className='collections-card'key={collections._id}>
+                            {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
+                            <Card.Body>
+                                <Card.Title>{collections.collectionName}</Card.Title>
+                                    <p className='small'>Collection: {collections.collectionName}</p>
+                            <Card.Text>Category: {collections.category}</Card.Text>
+                            <Button 
+                                className='btn-block' 
+                                onClick={() => viewCollection(collection._id)}
+                            >
+                                View this collection!
+                            </Button>
+                            </Card.Body>
+                        </Card>
+                        );
+                     })}
+                </Card>
+            </Container> 
+            
+        </>
+    )
+}
 
 
-// function CollectionsList() {
 
+export default Collections;
 
-//   const { loading, data } = useQuery(QUERY_COLLECTIONS);
-
-  
-
- 
-
-//   return (
-  
-//         <>
-//           <Jumbotron fluid className='text-light bg-dark'>
-//             <Container>
-//               <h1>Viewing Collections!</h1>
-//             </Container>
-//           </Jumbotron>
-//           <Container>
-//             <h2>
-//               {userData.savedBooks.length
-//                 ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
-//                 : 'You have no saved books!'}
-//             </h2>
-//             <CardColumns>
-//               {userData.savedBooks.map((book) => {
-//                 return (
-//                   <Card key={book.bookId} border='dark'>
-//                     {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
-//                     <Card.Body>
-//                       <Card.Title>{book.title}</Card.Title>
-//                       <p className='small'>Authors: {book.authors}</p>
-//                       <Card.Text>{book.description}</Card.Text>
-//                       <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
-//                         Delete this Book!
-//                       </Button>
-//                     </Card.Body>
-//                   </Card>
-//                 );
-//               })}
-//             </CardColumns>
-//           </Container>
-//         </>
-//     );
-// };
     
 
-
-// export default CollectionsList;

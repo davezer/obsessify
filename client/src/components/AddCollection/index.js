@@ -12,7 +12,15 @@ function AddCollection() {
 
   const [addCollection, { error }] = useMutation(ADD_COLLECTION, {
     update(cache, { data: { addCollection } }) {
+      
+      
       try {
+
+        const { me } = cache.readQuery({ query: GET_ME });
+        cache.writeQuery({
+            query: GET_ME,
+            data: { me: { ...me, collections: [...me.collections, addCollection] } }
+        });
         const { collections } = cache.readQuery({ query: QUERY_COLLECTIONS });
         console.log(collections);
         cache.writeQuery({
@@ -22,11 +30,7 @@ function AddCollection() {
       } catch (e) {
         console.error(e);
       }
-      const { me } = cache.readQuery({ query: GET_ME });
-      cache.writeQuery({
-          query: GET_ME,
-          data: { me: { ...me, collections: [...me.collections, addCollection] } }
-      });
+      
     },
   });
 
