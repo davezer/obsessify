@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const ADD_COLLECTION = gql`
   mutation addCollection($collectionName: String!, $category: String!) {
-    addCollection(collectionName: $collection, category: $category) {
+    addCollection(collectionName: $collectionName, category: $category) {
       _id
       collectionName
       category
