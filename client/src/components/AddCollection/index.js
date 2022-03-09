@@ -4,14 +4,24 @@ import { ADD_COLLECTION } from "../../utils/mutations";
 import { QUERY_COLLECTIONS, GET_ME } from "../../utils/queries";
 
 function AddCollection() {
+  
   const [formData, setFormData] = useState({
     collectionName: '',
     category: '',
   });
+  
 
   const [addCollection, { error }] = useMutation(ADD_COLLECTION, {
     update(cache, { data: { addCollection } }) {
+      
+      
       try {
+
+        const { me } = cache.readQuery({ query: GET_ME });
+        cache.writeQuery({
+            query: GET_ME,
+            data: { me: { ...me, collections: [...me.collections, addCollection] } }
+        });
         const { collections } = cache.readQuery({ query: QUERY_COLLECTIONS });
         console.log(collections);
         cache.writeQuery({
@@ -21,11 +31,7 @@ function AddCollection() {
       } catch (e) {
         console.error(e);
       }
-      const { me } = cache.readQuery({ query: GET_ME });
-      cache.writeQuery({
-          query: GET_ME,
-          data: { me: { ...me, collections: [...me.collections, addCollection] } }
-      });
+      
     },
   });
 
@@ -56,22 +62,17 @@ function AddCollection() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold text-center">Add a Collection</h1>
+      <div className=" add-div items-center">
+        <h1 className="font-bold text-center add-header">Add a Collection</h1>
         <form className="w-full max-w-lg" onSubmit={handleSubmit}>
-          <div className="flex flex-wrap mb-6 -mx-3">
+          <div className="flex flex-wrap mb-6 -mx-3 form-div">
             <div className="w-full px-3 md:w-1/2">
-              <label
-                className="block mb-2"
-                htmlFor="grid-description"
-              >
-                Collection
-              </label>
+              
               <input
-                className="block w-full px-4 py-3 mb-3"
+                className="collection-block w-full px-4 py-3 mb-3"
                 key="grid-collection"
                 type="text"
-                placeholder="collection"
+                placeholder="Collection Name"
                 name="collectionName"
                 value={formData.collectionName}
                 onChange={handleChange}
@@ -79,17 +80,12 @@ function AddCollection() {
             </div>
 
             <div className="w-full px-3 md:w-1/2">
-              <label
-                className="block mb-2"
-                htmlFor="grid-description"
-              >
-                Category
-              </label>
+             
               <input
-                className="block w-full px-4 py-3 mb-3"
+                className="category-block w-full px-4 py-3 mb-3"
                 key="grid-collection"
                 type="text"
-                placeholder="category"
+                placeholder="Category"
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
@@ -98,7 +94,7 @@ function AddCollection() {
 
             <button
               title="Submit"
-              className="w-full p-3 rounded-lg shadow-lg"
+              className="submit add-item-btn"
               type="submit"
               value="Submit"
               >

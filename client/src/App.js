@@ -46,7 +46,6 @@ function App() {
     { name: "Home" },
     { name: "Collection" },
     { name: "Browse" },
-    { name: "Random" },
     { name: "About" }
   ]);;
   const [currentPage, setCurrentPage] = useState(pages[0]);

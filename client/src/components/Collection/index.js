@@ -47,16 +47,21 @@ const Collection = () => {
                 <h1>Your Collections</h1>
                 </Container>
             </Container>
+            
             <Container className='collections-container'>
-                <h2>
+                <Container className='add-collection-con'>
+                    <AddCollection />
+                </Container>   
+                
+                <h2 className='collection-count'>
                 {userData?.collectionCount
                     ? `Viewing ${userData.collectionCount} saved ${userData.collectionCount === 1 ? 'collection' : 'collections'}:`
                     : 'You have no collections!'}
                 </h2>
-                <Card>
+                <Card className='collection-cards'>
                 {userData.collections?.map((collection) => {
                     return (
-                    <Card key={collection._id} border='dark'>
+                    <Card className='collection-card'key={collection._id}>
                         {/* {item.image ? <Card.Img src={item.image} alt={`${item.title}`} variant='top' /> : null} */}
                         <Card.Body>
                         <Card.Title>{collection.collectionName}</Card.Title>
@@ -74,9 +79,7 @@ const Collection = () => {
                 })}
                 </Card>
             </Container>
-            <Container>
-                <AddCollection />
-            </Container>
+            
         </>
     )
 }

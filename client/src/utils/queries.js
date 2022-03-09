@@ -53,11 +53,7 @@ export const QUERY_COLLECTIONS = gql`
       _id
       collectionName
       category
-      itemCount
-      items {
-        _id
-        itemName
-      }
+      
     }
   }
 `;
@@ -68,11 +64,7 @@ export const QUERY_COLLECTION = gql`
       _id
       collectionName
       category
-      itemCount
-      items {
-        _id
-        itemName
-      }
+     
     }
   }
 `;

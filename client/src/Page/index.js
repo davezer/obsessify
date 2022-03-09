@@ -1,5 +1,5 @@
 import Collection from '../components/Collection'
-// import Browse from '../components/browse';
+import Browse from '../components/Browse';
 // import Random from '../components/Random';
 import About from '../components/About';
 import Home from '../components/Home';
@@ -13,8 +13,8 @@ function Page({ currentPage }) {
             return <Home />
         case 'Collection':
           return <Collection />;
-        // case 'Browse':
-        //   return <Browse />;
+        case 'Browse':
+          return <Browse />;
         // case 'Random':
         //   return <Random />;
         case 'About':
