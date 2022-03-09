@@ -7,19 +7,37 @@ If you like collectibles and are looking for a community of like-minded individu
 Come to Obsessify and see all the undiscovered treasures people have collected over their life times
  <br>
 
-![Dave Oliverio](https://github.com/davezer/reactPortfolio/blob/main/src/assets/images/94c52f155dc9072198e40a9979319d19.png?raw=true)
+![Obsessify](https://github.com/davezer/obsessify/blob/develop/client/src/assets/obsessifySS.png?raw=truehttps://github.com/davezer/obsessify/blob/develop/client/src/assets/obsessifySS.png?raw=true)
 
 ## Table of Contents
 
-- [Deployed](#Deployed)
-- [Contributing](#Contributing)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Deployment](#deployment)
+* [Contributing](#contributing)
+* [License](#license)
 
-## Deployed
+## Setup
 
-Visit my [Portfolio](https://davezer.github.io/reactPortfolio)
+Uses the following tools in this repository:
 
-Visit my [GitHub](https://davezer.github.com)
+- [React](https://reactjs.org/)
+  
+- [GraphQL](https://graphql.org/)
+ 
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+ 
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+ 
+- [concurrently](https://graphql.org/)
+
+	
+## Deployment
 
 ## Contributing
+Visit Dave on [GitHub](https://davezer.github.com)
 
-Created by me, Dave Oliverio!
+Visit Adam on [GitHub](https://adamcalasola.github.com)
+
+Created by Dave Oliverio and Adam Calcasola!
+
