@@ -42,12 +42,12 @@ const Collection = () => {
 
     return (
         <>
-            <Container fluid className='text-light bg-dark'>
+            <Container fluid className='collections-header'>
                 <Container>
                 <h1>Your Collections</h1>
                 </Container>
             </Container>
-            <Container>
+            <Container className='collections-container'>
                 <h2>
                 {userData?.collectionCount
                     ? `Viewing ${userData.collectionCount} saved ${userData.collectionCount === 1 ? 'collection' : 'collections'}:`
@@ -77,46 +77,6 @@ const Collection = () => {
             <Container>
                 <AddItem></AddItem>
             </Container>
-            {/* <Container class="dashboard-create shadow">
-                <h2>Add New Item</h2>
-                <Form class="new-item-form">
-                    <div>
-                        <label for="item-name">Name</label>
-                        <input type="text" id="item-name" name="item-name" />
-                    </div>
-                    <div>
-                        <label for="item-description">Description</label>
-                        <textarea id="item-text" name="item-text"></textarea>
-                    </div>
-                    <div>
-                        <label for="item-category">Category</label>
-                        <select name="item-category" id="item-category">
-                            <option value="1">Sports</option>
-                            <option value="2">Comics</option>
-                            <option value="3">Coins</option>
-                            <option value="4">Stamps</option>
-                        </select>
-                    </div>
-                    <div className="m-3">
-                        <label className="mx-3"></label>
-                        <input
-                            id="input-file"
-                            onChange={handleDisplayFileDetails}
-                            className="d-none"
-                            type="file"
-                        />
-                        <button
-                            onClick={handleUpload}
-                            className={`btn btn-outline-${
-                            uploadedFileName ? "success" : "primary"
-                            }`}
-                        >
-                            {uploadedFileName ? uploadedFileName : "Upload"}
-                        </button>
-                    </div>
-                    <Button type="submit">Add</Button>
-                </Form>
-            </Container> */}
         </>
     )
 }

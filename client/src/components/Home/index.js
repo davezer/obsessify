@@ -1,7 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React from 'react';
 import Typed from 'react-typed';
 
-import { Container, Col, Row, Button, Card } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import { Carousel } from 'react-bootstrap';
 
 
@@ -10,26 +10,30 @@ const Home = () => {
   
 
   return(
-  <div className='home-div'>
-      <h1 className='home-title'>
-        <em>
-          <div className='text-slider-div'>
-              <span className="intro-text-slider">
-                  <Typed
-                  strings={[
-                      "This is about sports.",
-                      "This is about comics.",
-                      "This is about collecting.",
-                      "This is obsessed."  
-                  ]}
-                  typeSpeed={50}
-                  backSpeed={50}
-                  />
-              </span>
-          </div>
-        </em>
-      </h1>
 
+    <>
+    <Container fluid className='typed-container'>
+      <div className='home-div'>
+          <h1 className='home-title'>
+            <em>
+              <div className='text-slider-div'>
+                  <span className="intro-text-slider">
+                      <Typed
+                      strings={[
+                          "This is about sports.",
+                          "This is about comics.",
+                          "This is about collecting.",
+                          "This is obsessed."  
+                      ]}
+                      typeSpeed={50}
+                      backSpeed={50}
+                      />
+                  </span>
+              </div>
+            </em>
+          </h1>
+      </div> 
+    </Container>
       {/* <Container className="category-con">
         <Row classname="category-row">
           <Col>Sports</Col>
@@ -118,7 +122,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container> */}
-    </div>  
+    </>  
   )
 }
 
