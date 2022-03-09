@@ -9,7 +9,7 @@ const Collections = () => {
     const { loading, data } = useQuery(QUERY_COLLECTIONS);
     const {viewCollection} = useQuery(QUERY_COLLECTION);
     const userData = data?.me || {};
-    const collection = useState(QUERY_COLLECTION)
+    const collection = useState(QUERY_COLLECTION);
 
     return (
         <>
