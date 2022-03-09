@@ -47,12 +47,12 @@ const Collection = () => {
                 <h1>Your Collections</h1>
                 </Container>
             </Container>
-            <Container className='add-collection-con'>
-                    <AddCollection />
-            </Container>   
-            <Container className='collections-container'>
-                
             
+            <Container className='collections-container'>
+                <Container className='add-collection-con'>
+                    <AddCollection />
+                </Container>   
+                
                 <h2 className='collection-count'>
                 {userData?.collectionCount
                     ? `Viewing ${userData.collectionCount} saved ${userData.collectionCount === 1 ? 'collection' : 'collections'}:`

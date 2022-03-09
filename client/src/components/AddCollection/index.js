@@ -4,6 +4,7 @@ import { ADD_COLLECTION } from "../../utils/mutations";
 import { QUERY_COLLECTIONS, GET_ME } from "../../utils/queries";
 
 function AddCollection() {
+  
   const [formData, setFormData] = useState({
     collectionName: '',
     category: '',
@@ -61,7 +62,7 @@ function AddCollection() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className=" add-div items-center">
         <h1 className="font-bold text-center add-header">Add a Collection</h1>
         <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           <div className="flex flex-wrap mb-6 -mx-3 form-div">

@@ -203,14 +203,14 @@ body {
 .collections-container {
   display: flex;
   flex-direction: column;
-  margin: -299px 0px 37px 471px;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
   padding-top: 25px;
   padding-bottom: 25px;
   text-align: center;
   width: 50%;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: stretch;
+  
 }
 
 .collection-count {
@@ -235,39 +235,33 @@ body {
 }
 
 .add-collection-con {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.add-div {
+  align-items: center;
+  margin: 0px 0px 20px 0px;
 }
 
 .add-header {
   font-size: 25px;
-  margin: 54px -4px -39px -1576px;
   display: flex;
   flex-direction: column;
-  align-content: left;
+  align-content: center;
   justify-content: flex-start;
+  text-shadow: 1px 1px var(--blue);
 }
 
-.form-div{
-  display: flex;
-  margin: 70px 64px 41px -286px;
-  flex-direction: column;
-  align-content: left;
-  justify-content: flex-start;
-}
+
 .add-form-item {
   display: grid;
-  margin: 40px -16px 45px 477px;
   align-items: center;
   width: 100%;
 }
 
-.add-header {
-  text-align: center;
-
-}
 
 .collection-block {
   text-align: center;
@@ -283,20 +277,20 @@ body {
 }
 
 .add-item-btn {
-  width: 10%;
-  margin: -10px 24px 0px 75px;
-  align-items: center;
+  width: 20%;
+
   color: var(--gunmetal);
   background-color: var(--platinum);
   margin-top: 1rem;
   border: 2px solid var(--blue);
   padding: 15px;
+  margin-bottom: 20px;
   border-radius: 8px;
 }
 
 .add-item-btn:hover {
   width: 10%;
-  margin: -10px 24px 0px 75px;
+  /* margin: -10px 24px 0px 75px; */
   align-items: center;
   background-color: var(--platinum);
   margin-top: 1rem;
@@ -637,7 +631,7 @@ footer h4:hover {
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 999px) {
   .navbar {
     background-color: var(--gunmetal);
     position: sticky;
@@ -689,6 +683,10 @@ footer h4:hover {
   margin: 3px 1px 0px 44px;
 }
 
+.add-div {
+  align-items: center;
+}
+
 .add-collection-con {
   margin: -1px -22px 0px 68px;
 }
@@ -702,7 +700,7 @@ footer h4:hover {
 .collections-container {
   display: flex;
   flex-direction: column;
-  margin: -300px 0px 28px 440px;
+  margin: 55px 0px 37px 471px;
   padding-top: 25px;
   padding-bottom: 25px;
   width: 50%;
@@ -776,7 +774,7 @@ footer h4:hover {
 }
 
 .add-collection-con {
-  margin: -1px -22px 0px 68px;
+  margin: -2px -22px 0px -81px;
 }
 
 .collection-count {
