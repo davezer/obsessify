@@ -58,7 +58,7 @@ export default function NewItem() {
           <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
             <label
               className="block mb-2"
-              htmlFor="grid-host"
+              htmlFor="grid-item"
             >
               Item
             </label>
@@ -109,24 +109,24 @@ export default function NewItem() {
         </div>
         
         
-          <div className="w-full px-3 md:w-1/2">
-            <label
-              className="block mb-2"
-              htmlFor="grid-url"
-            >
-              Upload Image
-              <i className="fas fa-image "></i>
-            </label>
-            <input
-              className="block w-full px-4 py-3 mb-3"
-              id="grid-image"
-              type="text"
-              placeholder=""
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-            />
-          </div>
+        {/* <div className="w-full px-3 md:w-1/2">
+          <label
+            className="block mb-2"
+            htmlFor="grid-url"
+          >
+            Upload Image
+            <i className="fas fa-image "></i>
+          </label>
+          <input
+            className="block w-full px-4 py-3 mb-3"
+            id="grid-image"
+            type="text"
+            placeholder=""
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+          />
+        </div> */}
        
         <button
           title="Submit"

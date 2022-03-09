@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Contact from '../Contact';
 
 function About() {
     return(
@@ -20,13 +21,17 @@ function About() {
             <Container>
                 <div className="inner-container">
                     <div className="row">
-                        <div className="about-description col-lg-6 col-md-12">
+                        <div className="about-description ">
                             <p>
                                 Here at Obsessify we strive to bring together a community of collectors of all things sports and pop culture to show off their collections. <br></br>
                                 From grails to sentimental pieces, we encourage you to show it off!
                             </p>
                         
                         </div>
+                         
+                    </div>
+                    <div className="about-contact">
+                        <Contact></Contact>
                     </div>
                 </div>
             </Container>    
