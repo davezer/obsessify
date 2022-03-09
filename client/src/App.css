@@ -205,6 +205,65 @@ body {
   text-align: center;
 }
 
+.add-item-div{
+  margin: 61px 12px 12px 37px;
+  align-items: center;
+}
+.add-form-item {
+  display: grid;
+  margin: 40px -16px 45px 477px;
+  align-items: center;
+  width: 100%;
+}
+
+.add-header {
+  text-align: center;
+
+}
+
+.item-block {
+  text-align: center;
+  margin-right: 10px;
+}
+.description-block {
+  text-align: center;
+  margin-right: 10px;
+}
+.category-block {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.add-item-btn {
+  width: 10%;
+  margin: -10px 24px 0px 100px;
+  align-items: center;
+  color: var(--gunmetal);
+  background-color: var(--platinum);
+  margin-top: 1rem;
+  border: 2px solid var(--lapis);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.add-item-btn:hover {
+  width: 10%;
+  margin: -10px 24px 0px 100px;
+  align-items: center;
+  color: var(--gunmetal);
+  background-color: var(--platinum);
+  margin-top: 1rem;
+  border: 2px solid var(--lapis);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--platinum);
+  background: -webkit-linear-gradient(45deg, var(--lapis), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all var(--timing) ease-in;
+}
+
 /* ABOUT */
 
 .image-container {

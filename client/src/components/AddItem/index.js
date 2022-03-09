@@ -51,53 +51,35 @@ export default function NewItem() {
 
   return (
     <>
-    <div className="flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-center">Add an Item</h1>
-      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
-        <div className="flex flex-wrap mb-6 -mx-3">
-          <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2"
-              htmlFor="grid-item"
-            >
-              Item
-            </label>
+    <div className="add-item-con">
+      <h3 className="add-header">Add Collection</h3>
+      <form className="add-form-item" onSubmit={handleSubmit}>
+        <div className="add-item-div">
+          <div className="add-item-form">
             <input
-              className="block w-full px-4 py-3 mb-3"
+              className="item-block w-full px-4 py-3 mb-3"
               id="grid-item"
               type="text"
-              placeholder="Item"
+              placeholder="Name"
               name="item"
               value={formData.item}
               onChange={handleChange}
             />
           </div>
-          <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2 text-xs"
-              htmlFor="grid-category"
-            >
-              Category
-            </label>
+          <div className="add-item-form">
             <input
-              className="block w-full px-4 py-3 mb-3"
+              className="category-block w-full px-4 py-3 mb-3"
               id="grid-category"
               type="text"
-              placeholder="category"
+              placeholder="Category"
               name="category"
               value={formData.category}
               onChange={handleChange}
             />
           </div>
-          <div className="w-full px-3 md:w-1/2">
-            <label
-              className="block mb-2"
-              htmlFor="grid-description"
-            >
-              Description
-            </label>
+          <div className="add-item-form">
             <input
-              className="block w-full px-4 py-3 mb-3"
+              className="description-block w-full px-4 py-3 mb-3"
               id="grid-description"
               type="text"
               placeholder="Description"
@@ -130,7 +112,7 @@ export default function NewItem() {
        
         <button
           title="Submit"
-          className="w-full p-3 rounded-lg shadow-lg"
+          className="add-item-btn"
           type="submit"
           value="Submit"
         >
