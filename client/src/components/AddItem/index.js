@@ -68,7 +68,7 @@ export default function NewItem() {
               type="text"
               placeholder="Item"
               name="item"
-              value={formData.item}
+              value={formData.itemName}
               onChange={handleChange}
             />
           </div>
@@ -85,7 +85,7 @@ export default function NewItem() {
               type="text"
               placeholder="category"
               name="category"
-              value={formData.category}
+              value={formData.collection}
               onChange={handleChange}
             />
           </div>
