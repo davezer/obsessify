@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from 'react';
 // import { useQuery } from '@apollo/client';
-
+// import { Jumbotron, Container } from 'react-bootstrap';
 // import { QUERY_COLLECTIONS } from '../../utils/queries';
 // import Auth from '../../utils/auth';
 
@@ -19,7 +19,7 @@
 //         <>
 //           <Jumbotron fluid className='text-light bg-dark'>
 //             <Container>
-//               <h1>Viewing saved books!</h1>
+//               <h1>Viewing Collections!</h1>
 //             </Container>
 //           </Jumbotron>
 //           <Container>

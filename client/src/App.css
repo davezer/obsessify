@@ -1,7 +1,7 @@
 :root {
-  --font-family: 'Ubuntu', sans-serif;
+  --font-family: 'Montserrat', sans-serif;
   --platinum: #eae2b7;
-  --gunmetal: #003049;
+  --gunmetal: #001E2E;
   --blue: #f77f00;
   --lapis: #d62828;
   --yellow: #fcbf49;
@@ -88,9 +88,9 @@ body {
   margin: 23px 11px -25px 0px;
 }
 
-.nav-item.active li {
+.navActive {
   color: var(--platinum)!important;
-  text-shadow: 1px 1px var(--lapis);
+  text-shadow: 1px 1px var(--blue);
   cursor: pointer;
 }
 
@@ -265,8 +265,9 @@ body {
   width: 100%;
 }
 
-.form-input {
-  margin: 5% 0 0;
+.form-input { 
+  line-height: 2;
+  width: 75%;
 }
 
 /* FOOTER */
@@ -473,6 +474,7 @@ footer h4:hover {
   height: 50px;
   overflow: scroll;
 }
+
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
@@ -491,6 +493,7 @@ footer h4:hover {
     width: 900px;
   }
 }
+
 .clearfix:before,
 .clearfix:after,
 .modal-header:before,
