@@ -77,7 +77,7 @@ export default function NewItem() {
               onChange={handleChange}
             />
           </div>
-          <div className="add-item-form">
+          {/* <div className="add-item-form">
             <input
               className="description-block w-full px-4 py-3 mb-3"
               id="grid-description"
@@ -87,7 +87,7 @@ export default function NewItem() {
               value={formData.description}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
         </div>
         
         
