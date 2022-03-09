@@ -58,7 +58,6 @@ const resolvers = {
             return { token, user };
         },
         addCollection: async (parent, { collectionName, category }, context) => {
-            console.log(collectionName);
             if (context.user) {
                 const collection = await Collection.create({ collectionName, category });
 
