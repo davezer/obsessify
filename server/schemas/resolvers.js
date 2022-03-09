@@ -57,9 +57,10 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addCollection: async (parent, args, context) => {
+        addCollection: async (parent, { collectionName, category }, context) => {
+            console.log(collectionName);
             if (context.user) {
-                const collection = await Collection.create({ ...args, email: context.user.email });
+                const collection = await Collection.create({ collectionName, category });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },

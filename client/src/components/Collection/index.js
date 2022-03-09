@@ -7,7 +7,7 @@ import { GET_ME } from '../../utils/queries';
 import { REMOVE_COLLECTION } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
-import AddItem from '../AddItem';
+import AddCollection from '../AddCollection';
 
 const Collection = () => {
     const { loading, data } = useQuery(GET_ME);
@@ -75,7 +75,7 @@ const Collection = () => {
                 </Card>
             </Container>
             <Container>
-                <AddItem></AddItem>
+                <AddCollection />
             </Container>
             {/* <Container class="dashboard-create shadow">
                 <h2>Add New Item</h2>
