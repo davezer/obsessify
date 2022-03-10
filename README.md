@@ -33,6 +33,7 @@ Uses the following tools in this repository:
 
 	
 ## Deployment
+[Obsessify](https://obsessify.herokuapp.com/)
 
 ## Contributing
 Visit Dave on [GitHub](https://davezer.github.com)
@@ -40,4 +41,7 @@ Visit Dave on [GitHub](https://davezer.github.com)
 Visit Adam on [GitHub](https://adamcalasola.github.com)
 
 Created by Dave Oliverio and Adam Calcasola!
+
+## License
+
 
